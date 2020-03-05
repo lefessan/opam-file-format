@@ -111,6 +111,7 @@ rule token = parse
 | "("    { LPAR }
 | ")"    { RPAR }
 | '\"'   { STRING (buffer_rule string lexbuf) }
+| "\"\"\"\n" { STRING (buffer_rule string_triple lexbuf) }
 | "\"\"\"" { STRING (buffer_rule string_triple lexbuf) }
 | "(*"   { comment 1 lexbuf; token lexbuf }
 | '#' [^'\n']*
