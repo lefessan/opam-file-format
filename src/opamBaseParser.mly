@@ -111,3 +111,13 @@ let main t l f =
   | e ->
     Parsing.clear_parser ();
     raise e
+
+let value t l =
+  try
+    let r = value t l in
+    Parsing.clear_parser ();
+    r
+  with
+  | e ->
+    Parsing.clear_parser ();
+    raise e
